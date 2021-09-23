@@ -1,6 +1,5 @@
 package cn.zengchen233.dao.role;
 
-import cn.zengchen233.dao.BaseDao;
 import cn.zengchen233.pojo.Role;
 
 import java.sql.Connection;
@@ -9,27 +8,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RoleDaoImpl implements RoleDao {
-    @Override
-    public List<Role> getRoleList(Connection connection) throws Exception {
-        PreparedStatement pstm = null;
-        ResultSet rs = null;
-        List<Role> roleList = new ArrayList<Role>();
+public class RoleDaoImpl{
 
-        if (connection != null) {
-            String sql = "select * from role";
-            Object[] params = {};
-            rs = BaseDao.execute(connection, pstm, sql, params, rs);
-
-            while (rs.next()) {
-                Role role = new Role();
-                role.setRoleid(rs.getInt("roleid"));
-                role.setRolename(rs.getString("rolename"));
-                roleList.add(role);
-            }
-            BaseDao.closeResources(null, pstm, rs);
-        }
-        return roleList;
-    }
 }
 

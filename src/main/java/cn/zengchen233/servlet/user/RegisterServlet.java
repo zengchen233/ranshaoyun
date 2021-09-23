@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterServlet extends HttpServlet {
     @Override
@@ -22,23 +24,22 @@ public class RegisterServlet extends HttpServlet {
         String phone = req.getParameter("phone"); //电话号码
         String email = req.getParameter("email"); //电子邮件
 
-        User user = new User();
-        user.setUserid(userid);
-        user.setUsercode(usercode);
-        user.setPassword(password);
-        user.setNickname(nickname);
-        user.setUsertype(usertype);
-        user.setPhone(phone);
-        user.setEmail(email);
+        Map<String,Object> map = new HashMap<>();
+        map.put("userid", userid);
+        map.put("usercode", usercode);
+        map.put("password", password);
+        map.put("nickname", nickname);
+        map.put("usertype", usertype);
+        map.put("phone", phone);
+        map.put("email", email);
 
         UserService userService = new UserServiceImpl();
 
-        if (userService.userRegister(user)) {
+        if (userService.userRegister(map)) {
             resp.sendRedirect(req.getContextPath() + "/user/success.html");
         } else {
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }
-
     }
 
     @Override
