@@ -31,6 +31,7 @@
 
     <mappers>
         <mapper resource="cn/zengchen233/dao/user/UserMapper.xml"/>
+        <mapper resource="cn/zengchen233/dao/role/RoleMapper.xml"/>
     </mappers>
 
 </configuration>

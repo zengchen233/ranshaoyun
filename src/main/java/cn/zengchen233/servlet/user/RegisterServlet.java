@@ -1,6 +1,5 @@
 package cn.zengchen233.servlet.user;
 
-import cn.zengchen233.pojo.User;
 import cn.zengchen233.service.user.UserService;
 import cn.zengchen233.service.user.UserServiceImpl;
 import cn.zengchen233.utils.IDUtils;
@@ -36,7 +35,7 @@ public class RegisterServlet extends HttpServlet {
         UserService userService = new UserServiceImpl();
 
         if (userService.userRegister(map)) {
-            resp.sendRedirect(req.getContextPath() + "/user/success.html");
+            resp.sendRedirect(req.getContextPath() + "/success.html");
         } else {
             req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }
