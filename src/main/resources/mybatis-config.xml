@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <properties resource="database.properties"/>
+    
+    <settings>
+        <setting name="defaultStatementTimeout" value="300"/> <!--自动超时时间300s-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/> <!--标准的日志工厂实现-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <typeAlias type="cn.zengchen233.pojo.User" alias="user"/>
+        <typeAlias type="cn.zengchen233.pojo.Role" alias="role"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${JDBC.driver}"/>
+                <property name="url" value="${JDBC.url}"/>
+                <property name="username" value="${JDBC.username}"/>
+                <property name="password" value="${JDBC.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="cn/zengchen233/dao/user/UserMapper.xml"/>
+    </mappers>
+
+</configuration>

@@ -20,7 +20,11 @@ public class LoginServlet extends HttpServlet {
 
         //和数据库中的做对比,调用业务层
         UserService userService = new UserServiceImpl();
-        user = userService.userLogin(usercode, password);//这里已经把登陆的人查出来
+        try {
+            user = userService.userLogin(usercode);//这里已经把登陆的人查出来
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         if (user != null && password.equals(user.getPassword())) {//有这个人 ，可以登录 且密码正确
             //将用户的信息放在Session

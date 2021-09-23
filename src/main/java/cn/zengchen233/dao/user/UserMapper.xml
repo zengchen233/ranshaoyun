@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.zengchen233.dao.user.UserMapper">
+
+    <resultMap id="map" type="User">
+        <result property="userid" column="userid"/>
+        <result property="usercode" column="usercode"/>
+        <result property="password" column="password"/>
+        <result property="nickname" column="nickname"/>
+        <result property="usertype" column="usertype"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+    </resultMap>
+
+    <insert id="userRegister" parameterType="map">
+        insert into user (userid,usercode,password,nickname,usertype,phone,email)
+        values (#{userid},#{usercode},#{password},#{nickname},#{usertype},#{phone},#{email})
+    </insert>
+
+
+
+    <select id="userLogin" parameterType="string" resultType="user">
+        select * from user where userCode = #{usercode}
+    </select>
+
+
+
+</mapper>
