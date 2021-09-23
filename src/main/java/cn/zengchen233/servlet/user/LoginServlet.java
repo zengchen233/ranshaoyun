@@ -29,10 +29,11 @@ public class LoginServlet extends HttpServlet {
         if (user != null && password.equals(user.getPassword())) {//有这个人 ，可以登录 且密码正确
             //将用户的信息放在Session
             req.getSession().setAttribute(Constant.USER_SESSION,user);
-            System.out.println("登陆成功");
-            resp.sendRedirect(req.getContextPath() + "/user/success.html");
+            // System.out.println("登陆成功");
+            resp.sendRedirect(req.getContextPath() + "/user/index.html");
         } else {
-            System.out.println("登陆失败");
+            // System.out.println("登陆失败");
+            req.setAttribute("error","用户名或密码不正确");
             req.getRequestDispatcher("/index.jsp").forward(req,resp);
         }
     }

@@ -23,7 +23,7 @@ public class UserFilter implements Filter {
 
         if (user == null) {
             //已经被移除，注销，未登录
-            resp.sendRedirect( req.getContextPath()+ "/error.html");
+            resp.sendRedirect( req.getContextPath()+ "/404.html");
         }
 
         chain.doFilter(request,response);
