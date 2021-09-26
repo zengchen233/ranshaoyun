@@ -11,4 +11,6 @@ public interface UserMapper {
 
     //用户登录
     public User userLogin(@Param("usercode") String usercode);
+
+    public int userComment(Map<String,Object> map);
 }

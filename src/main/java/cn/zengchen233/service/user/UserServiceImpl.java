@@ -43,5 +43,21 @@ public class UserServiceImpl implements UserService {
         sqlSession.close();
         return loginUser;
     }
+
+    @Override
+    public boolean userComment(Map<String, Object> map) {
+        boolean flag = false;
+        SqlSession sqlSession = mybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+        int add = mapper.userComment(map);
+
+        if (add > 0) {
+            flag = true;
+        }
+
+        sqlSession.close();
+        return flag;
+    }
 }
 
