@@ -12,6 +12,9 @@
         <result property="usertype" column="usertype"/>
         <result property="phone" column="phone"/>
         <result property="email" column="email"/>
+        <result property="datetime" column="datetime"/>
+        <result property="title" column="title"/>
+        <result property="message" column="message"/>
     </resultMap>
 
     <insert id="userRegister" parameterType="map">
@@ -19,12 +22,12 @@
         values (#{userid},#{usercode},#{password},#{nickname},#{usertype},#{phone},#{email})
     </insert>
 
-
-
     <select id="userLogin" parameterType="string" resultType="user">
         select * from user where userCode = #{usercode}
     </select>
 
-
-
+    <insert id="userComment" parameterType="map">
+        insert into comment (usercode,nickname,datetime,title,message)
+        values (#{usercode},#{nickname},#{datetime},#{title},#{message})
+    </insert>
 </mapper>
