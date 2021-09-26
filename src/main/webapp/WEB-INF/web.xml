@@ -8,6 +8,11 @@
     <session-timeout>60</session-timeout>
   </session-config>
 
+  <error-page>
+    <error-code>404</error-code>
+    <location>/404.html</location>
+  </error-page>
+
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
     <filter-class>cn.zengchen233.filter.CharacterEncodingFilter</filter-class>
@@ -26,11 +31,6 @@
     <url-pattern>/user/*</url-pattern>
   </filter-mapping>
 
-  <error-page>
-    <error-code>404</error-code>
-    <location>/404.html</location>
-  </error-page>
-
   <servlet>
     <servlet-name>register</servlet-name>
     <servlet-class>cn.zengchen233.servlet.user.RegisterServlet</servlet-class>
@@ -47,6 +47,15 @@
   <servlet-mapping>
     <servlet-name>login</servlet-name>
     <url-pattern>/log.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>logout</servlet-name>
+    <servlet-class>cn.zengchen233.servlet.user.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logout</servlet-name>
+    <url-pattern>/user/logout.do</url-pattern>
   </servlet-mapping>
 
 </web-app>
