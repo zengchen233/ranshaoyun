@@ -1,6 +1,5 @@
-<%@ page import="cn.zengchen233.pojo.Comment" %>
-<%@ page import="cn.zengchen233.utils.Constant" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>留言墙 - 浏览</title>
@@ -8,7 +7,8 @@
 <body>
 <div style="margin-left: 35%; margin-top: 100px; font-family: Microsoft YaHei">
     <h1 style="margin-left: 5%">这里是留言板主界面</h1>
-    <form action="leavemessage.jsp" method="post">
+    <form action="leavemessage.jsp" method="get">
+        <input name="method" value="query" type="hidden">
         <table border="1">
             <caption>所有留言信息</caption>
             <tr>
@@ -17,12 +17,22 @@
                 <th>留言标题</th>
                 <th>留言内容</th>
             </tr>
+        <c:forEach var="comment" items="${commentList }" varStatus="status">
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>
+                    <span>${comment.nickname}</span>
+                </td>
+                <td>
+                    <span>${comment.datetime}</span>
+                </td>
+                <td>
+                    <span>${comment.title}</span>
+                </td>
+                <td>
+                    <span>${comment.message}</span>
+                </td>
             </tr>
+        </c:forEach>
         </table>
     </form>
     <a style="margin-left: 22%" href="leavemessage.jsp">留言</a>
