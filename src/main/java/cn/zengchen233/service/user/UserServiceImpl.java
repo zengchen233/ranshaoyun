@@ -1,10 +1,12 @@
 package cn.zengchen233.service.user;
 
 import cn.zengchen233.dao.user.UserMapper;
+import cn.zengchen233.pojo.Comment;
 import cn.zengchen233.pojo.User;
 import cn.zengchen233.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("all")
@@ -58,6 +60,17 @@ public class UserServiceImpl implements UserService {
 
         sqlSession.close();
         return flag;
+    }
+
+    @Override
+    public List<Comment> queryComment(Map<String, Object> map) {
+        SqlSession sqlSession = mybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+        List<Comment> commentList = mapper.queryComment(map);
+
+        sqlSession.close();
+        return commentList;
     }
 }
 

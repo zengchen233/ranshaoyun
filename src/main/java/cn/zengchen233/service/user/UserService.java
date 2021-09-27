@@ -1,7 +1,9 @@
 package cn.zengchen233.service.user;
 
+import cn.zengchen233.pojo.Comment;
 import cn.zengchen233.pojo.User;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserService {
@@ -12,5 +14,7 @@ public interface UserService {
     public User userLogin(String usercode);
 
     public boolean userComment(Map<String, Object> map);
+
+    public List<Comment> queryComment(Map<String,Object> map);
 
 }

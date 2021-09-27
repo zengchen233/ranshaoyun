@@ -30,4 +30,8 @@
         insert into comment (usercode,nickname,datetime,title,message)
         values (#{usercode},#{nickname},#{datetime},#{title},#{message})
     </insert>
+    
+    <select id="queryComment" parameterType="map" resultType="map">
+        select * from comment
+    </select>
 </mapper>
