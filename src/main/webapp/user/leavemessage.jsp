@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>留言板</title>
+    <link rel="stylesheet" href="../static/css/leavemessage.css">
 </head>
 <body>
 
