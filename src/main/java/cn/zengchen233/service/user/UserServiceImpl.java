@@ -5,7 +5,9 @@ import cn.zengchen233.pojo.Comment;
 import cn.zengchen233.pojo.User;
 import cn.zengchen233.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -71,6 +73,17 @@ public class UserServiceImpl implements UserService {
 
         sqlSession.close();
         return commentList;
+    }
+
+    @Test
+    public void test() {
+        UserServiceImpl userService = new UserServiceImpl();
+        Map<String, Object> map = new HashMap<>();
+        List<Comment> list = userService.queryComment(map);
+
+        for (Comment comment : list) {
+            System.out.println(list.toString());
+        }
     }
 }
 
