@@ -1,8 +1,10 @@
 package cn.zengchen233.dao.user;
 
+import cn.zengchen233.pojo.Comment;
 import cn.zengchen233.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserMapper {
@@ -13,4 +15,7 @@ public interface UserMapper {
     public User userLogin(@Param("usercode") String usercode);
 
     public int userComment(Map<String,Object> map);
+
+    //通过条件查询留言
+    public List<Comment> queryComment(Map<String,Object> map);
 }

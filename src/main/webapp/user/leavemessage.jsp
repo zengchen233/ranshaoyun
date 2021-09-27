@@ -8,7 +8,8 @@
 
 <div style="text-align: center; margin-top: 140px">
     <h1>请留言</h1>
-    <form action="${pageContext.request.contextPath}/user/comment" method="post">
+    <form action="${pageContext.request.contextPath}/user/comment" method="get">
+        <input name="method" value="leave" type="hidden">
         <table style="margin-left: 37%" border="1">
             <caption>填写留言信息</caption>
             <tr>
