@@ -14,16 +14,16 @@
             <caption>填写留言信息</caption>
             <tr>
                 <td>留言标题</td>
-                <td><input type="text" name="title" /></td>
+                <td><input type="text" name="title" required/></td>
             </tr>
             <tr>
                 <td>留言内容</td>
-                <td><textarea name="message" rows="5" cols="35"></textarea></td>
+                <td><textarea name="message" rows="5" cols="35" required></textarea></td>
             </tr>
         </table>
         <input type="submit" value="提交" /> <input type="reset" value="重置" />
     </form>
-    <a href="wall.jsp">返回留言板界面</a>
+    <a href="${pageContext.request.contextPath}/user/comment?method=query">返回留言板界面</a>
 </div>
 
 </body>

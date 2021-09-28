@@ -7,8 +7,6 @@
 <body>
 <div style="margin-left: 35%; margin-top: 100px; font-family: Microsoft YaHei">
     <h1 style="margin-left: 5%">这里是留言板主界面</h1>
-    <form action="leavemessage.jsp" method="get">
-        <input name="method" value="query" type="hidden">
         <table border="1">
             <caption>所有留言信息</caption>
             <tr>
@@ -34,7 +32,6 @@
             </tr>
         </c:forEach>
         </table>
-    </form>
     <a style="margin-left: 22%" href="leavemessage.jsp">留言</a>
 </div>
 </body>
