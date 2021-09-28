@@ -22,9 +22,9 @@ public class CommentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String method = req.getParameter("method");
-        if (method.equals("leave")) {
+        if (method.equals("leave") && method != null) {
             this.leavemessage(req, resp);
-        } else if (method.equals("query")) {
+        } else if (method.equals("query") && method != null) {
             this.query(req, resp);
         }
     }
@@ -63,16 +63,8 @@ public class CommentServlet extends HttpServlet {
     public void query(HttpServletRequest req, HttpServletResponse resp) {
         UserService userService = new UserServiceImpl();
         List<Comment> commentList = null;
-        Map<String, Object> map = new HashMap<>();
 
-        Comment attribute = (Comment) req.getSession().getAttribute(Constant.USER_SESSION);
-
-        map.put("nickname",attribute.getNickname());
-        map.put("datetime",attribute.getDatetime());
-        map.put("title",attribute.getTitle());
-        map.put("message",attribute.getMessage());
-
-        commentList =  userService.queryComment(map);
+        commentList =  userService.queryComment();
 
         req.setAttribute("commentList", commentList);
 

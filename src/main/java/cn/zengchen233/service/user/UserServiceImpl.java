@@ -65,11 +65,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Comment> queryComment(Map<String, Object> map) {
+    public List<Comment> queryComment() {
         SqlSession sqlSession = mybatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
-        List<Comment> commentList = mapper.queryComment(map);
+        List<Comment> commentList = mapper.queryComment();
 
         sqlSession.close();
         return commentList;
@@ -78,12 +78,7 @@ public class UserServiceImpl implements UserService {
     @Test
     public void test() {
         UserServiceImpl userService = new UserServiceImpl();
-        Map<String, Object> map = new HashMap<>();
-        List<Comment> list = userService.queryComment(map);
-
-        for (Comment comment : list) {
-            System.out.println(list.toString());
-        }
+        userService.queryComment();
     }
 }
 

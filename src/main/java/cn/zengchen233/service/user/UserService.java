@@ -15,6 +15,6 @@ public interface UserService {
 
     public boolean userComment(Map<String, Object> map);
 
-    public List<Comment> queryComment(Map<String,Object> map);
+    public List<Comment> queryComment();
 
 }
