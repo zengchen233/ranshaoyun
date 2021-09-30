@@ -1,8 +1,10 @@
 package cn.zengchen233.filter;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
+@WebFilter(filterName = "CharacterEncodingFilter", urlPatterns = "/*")
 public class CharacterEncodingFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
