@@ -31,6 +31,12 @@ public class LoginServlet extends HttpServlet {
         if (user != null && password.equals(user.getPassword())) {//有这个人 ，可以登录 且密码正确
             //将用户的信息放在Session
             req.getSession().setAttribute(Constant.USER_SESSION,user);
+
+            // 判断用户是否为管理员
+            if (String.valueOf(user.getUsertype()).equals("1")) {
+                req.getSession().setAttribute(Constant.USER_SESSION_ADMIN,user);
+                // System.out.println("添加成功");
+            }
             // System.out.println("登陆成功");
             resp.sendRedirect(req.getContextPath() + "/user/index.jsp");
         } else {
