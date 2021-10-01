@@ -8,11 +8,17 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
 
-@WebFilter(filterName = "UserFilter", urlPatterns = "/user/*")
-public class UserFilter implements Filter {
+@WebFilter(filterName = "AdminFilter", urlPatterns = "/user/admin/*")
+public class AdminFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+
+    }
+
+    @Override
+    public void destroy() {
 
     }
 
@@ -21,20 +27,12 @@ public class UserFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
 
-        User user = (User) req.getSession().getAttribute(Constant.USER_SESSION);
+        User user = (User) req.getSession().getAttribute(Constant.USER_SESSION_ADMIN);
 
         if (user == null) {
-            //已经被移除，注销，未登录
-            resp.sendRedirect( req.getContextPath() + "/without permission.html");
+            resp.sendRedirect( req.getContextPath() + "/user/without permission.html");
             return;
         }
-
         chain.doFilter(request,response);
-
-    }
-
-    @Override
-    public void destroy() {
-
     }
 }
