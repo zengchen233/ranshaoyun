@@ -6,7 +6,7 @@
 </head>
 <body>
 <div style="margin-left: 35%; margin-top: 100px; font-family: Microsoft YaHei">
-    <h1 style="margin-left: 5%">这里是留言板主界面</h1>
+    <h1 style="margin-left: 5%"></h1>
         <table border="1">
             <caption>所有留言信息</caption>
             <tr>
@@ -32,7 +32,8 @@
             </tr>
         </c:forEach>
         </table>
-    <a style="margin-left: 22%" href="leavemessage.jsp">留言</a>
+    <a style="margin-left: 22%" href="index.jsp">主页</a>
+    <a href="leavemessage.jsp">留言</a>
 </div>
 </body>
 </html>
