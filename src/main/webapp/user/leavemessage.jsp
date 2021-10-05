@@ -23,6 +23,7 @@
         </table>
         <input type="submit" value="提交" /> <input type="reset" value="重置" />
     </form>
+    <a href="index.jsp">主页</a>
     <a href="${pageContext.request.contextPath}/user/comment?method=query">返回留言板界面</a>
 </div>
 
