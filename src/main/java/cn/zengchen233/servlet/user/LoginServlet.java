@@ -5,12 +5,15 @@ import cn.zengchen233.service.user.UserService;
 import cn.zengchen233.service.user.UserServiceImpl;
 import cn.zengchen233.utils.Constant;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "login", urlPatterns = "/log.do")
 public class LoginServlet extends HttpServlet {
@@ -31,6 +34,15 @@ public class LoginServlet extends HttpServlet {
         if (user != null && password.equals(user.getPassword())) {//有这个人 ，可以登录 且密码正确
             //将用户的信息放在Session
             req.getSession().setAttribute(Constant.USER_SESSION,user);
+
+            ServletContext application = this.getServletContext();//取得application对象
+            List<String> list = (List<String>) application.getAttribute("allUser");
+
+            if(!list.contains(user.getNickname())){
+                HttpSession session = req.getSession(true);//取得session对象
+                session.setAttribute("username", user.getNickname());
+            }
+
 
             // 判断用户是否为管理员
             if (String.valueOf(user.getUsertype()).equals("1")) {

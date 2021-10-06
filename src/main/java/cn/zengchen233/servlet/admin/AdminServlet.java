@@ -23,9 +23,6 @@ public class AdminServlet extends HttpServlet {
     }
 
     public void query(HttpServletRequest req, HttpServletResponse resp) {
-
-
-
         try {
             req.getRequestDispatcher("admin/index.jsp").forward(req, resp);
         } catch (ServletException | IOException e) {
