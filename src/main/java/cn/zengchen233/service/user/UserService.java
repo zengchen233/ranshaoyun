@@ -13,8 +13,13 @@ public interface UserService {
     //用户登录
     public User userLogin(String usercode);
 
+    //用户留言
     public boolean userComment(Map<String, Object> map);
 
+    //用户留言查询
     public List<Comment> queryComment();
+
+    //获取用户列表
+    public List<User> queryUserList(Map<String, Object> map);
 
 }

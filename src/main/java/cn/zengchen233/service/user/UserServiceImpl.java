@@ -75,6 +75,17 @@ public class UserServiceImpl implements UserService {
         return commentList;
     }
 
+    @Override
+    public List<User> queryUserList(Map<String, Object> map) {
+        SqlSession sqlSession = mybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+        List<User> userList = mapper.queryUserList(map);
+
+        sqlSession.close();
+        return userList;
+    }
+
     @Test
     public void test() {
         UserServiceImpl userService = new UserServiceImpl();

@@ -31,7 +31,19 @@
         values (#{usercode},#{nickname},#{datetime},#{title},#{message})
     </insert>
     
-    <select id="queryComment" resultType="map">
+    <select id="queryComment" parameterType="map" resultType="map">
         select * from comment
+    </select>
+
+    <select id="queryUserList" parameterType="map" resultType="map">
+        select u.*, r.rolename from user u, role r
+        where u.usertype=r.roleid
+        <if test="nickname != null and nickname!=''">
+            and u.nickname like concat('%',#{nickname},'%')
+        </if>
+        <if test="userRole > 0">
+            and u.usertype like concat('%',#{userRole},'%')
+        </if>
+        order by usertype
     </select>
 </mapper>
