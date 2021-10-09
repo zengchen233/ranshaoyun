@@ -1,9 +1,6 @@
 package cn.zengchen233.servlet.admin;
 
-import cn.zengchen233.pojo.Role;
 import cn.zengchen233.pojo.User;
-import cn.zengchen233.service.role.RoleService;
-import cn.zengchen233.service.role.RoleServiceImpl;
 import cn.zengchen233.service.user.UserService;
 import cn.zengchen233.service.user.UserServiceImpl;
 
@@ -52,21 +49,19 @@ public class AdminServlet extends HttpServlet {
         }
         if (temp != null && !temp.equals("")){
             queryUserRole = Integer.parseInt(temp);//给查询赋值
-            System.out.println(queryUserRole);
+            // System.out.println(queryUserRole);
         }
 
         UserService userService = new UserServiceImpl();
 
-        List<User> userList = null;
-        Map<String, Object> map = new HashMap<String, Object>();
+        List<User> userList;
+        Map<String, Object> map = new HashMap<>();
 
         map.put("nickname", name);
         map.put("userRole", queryUserRole);
 
         //获取用户列表展示
         userList = userService.queryUserList(map);
-
-        RoleService roleService = new RoleServiceImpl();
 
         req.setAttribute("userList", userList);
 

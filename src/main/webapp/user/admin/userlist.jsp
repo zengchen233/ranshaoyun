@@ -10,7 +10,7 @@
         <form method="get" action="${pageContext.request.contextPath}/user/admin">
             <input name="method" value="query" class="input-text" type="hidden">
             <span>用户名：</span>
-            <input name="name" class="input-text"	type="text" value="${name }">
+            <input name="name" class="input-text" type="text" value="${name}">
 
             <span>用户角色：</span>
             <select name="queryUserRole">
@@ -57,8 +57,6 @@
             </tr>
         </c:forEach>
     </table>
-</div>
-</section>
 </body>
 </html>
 
