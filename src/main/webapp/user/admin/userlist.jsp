@@ -6,7 +6,7 @@
     <title>用户列表 - 管理员</title>
 </head>
 <body>
-    <div class="search">
+    <div style="margin-left: 35%; margin-top: 100px; font-family: Microsoft YaHei">
         <form method="get" action="${pageContext.request.contextPath}/user/admin">
             <input name="method" value="query" class="input-text" type="hidden">
             <span>用户名：</span>
@@ -20,43 +20,44 @@
             </select>
 
             <input	value="查 询" type="submit" id="searchbutton">
-            <a href="${pageContext.request.contextPath}">添加用户</a>
+            <a href="${pageContext.request.contextPath}/user/admin">添加用户</a>
         </form>
     </div>
     <!--用户-->
-    <table class="providerTable" cellpadding="0" cellspacing="0">
-        <tr class="firstTr">
-            <th width="20%">用户编码</th>
-            <th width="20%">用户名称</th>
-            <%--<th width="10%">性别</th>--%>
-            <th width="10%">电话</th>
-            <th width="10%">邮箱</th>
-            <th width="10%">用户角色</th>
-            <th width="30%">操作</th>
-        </tr>
-        <c:forEach var="user" items="${userList }" varStatus="status">
+    <div style="margin-left: 35%; margin-top: 100px; font-family: Microsoft YaHei">
+        <table border="1">
             <tr>
-                <td>
-                    <span>${user.usercode }</span>
-                </td>
-                <td>
-                    <span>${user.nickname }</span>
-                </td>
-                <td>
-                    <span>${user.phone}</span>
-                </td>
-                <td>
-                    <span>${user.email}</span>
-                </td>
-                <td>
-                    <span>${user.rolename}</span>
-                </td>
-                <td>
-                    <span></span>
-                </td>
+                <th>用户编码</th>
+                <th>用户名称</th>
+                <th>电话</th>
+                <th>邮箱</th>
+                <th>用户角色</th>
+                <th>操作</th>
             </tr>
-        </c:forEach>
-    </table>
+         <c:forEach var="user" items="${userList }" varStatus="status">
+             <tr>
+                 <td>
+                     <span>${user.usercode }</span>
+                 </td>
+                 <td>
+                     <span>${user.nickname }</span>
+                 </td>
+                 <td>
+                     <span>${user.phone}</span>
+                 </td>
+                 <td>
+                     <span>${user.email}</span>
+                 </td>
+                 <td>
+                     <span>${user.rolename}</span>
+                 </td>
+                 <td>
+                     <span></span>
+                 </td>
+             </tr>
+         </c:forEach>
+        </table>
+    </div>
 </body>
 </html>
 
