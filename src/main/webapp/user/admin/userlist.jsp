@@ -20,7 +20,6 @@
             </select>
 
             <input	value="查 询" type="submit" id="searchbutton">
-            <a href="${pageContext.request.contextPath}/user/admin">添加用户</a>
         </form>
     </div>
     <!--用户-->
@@ -32,7 +31,6 @@
                 <th>电话</th>
                 <th>邮箱</th>
                 <th>用户角色</th>
-                <th>操作</th>
             </tr>
          <c:forEach var="user" items="${userList }" varStatus="status">
              <tr>
@@ -50,9 +48,6 @@
                  </td>
                  <td>
                      <span>${user.rolename}</span>
-                 </td>
-                 <td>
-                     <span></span>
                  </td>
              </tr>
          </c:forEach>

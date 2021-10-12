@@ -46,4 +46,8 @@
         </if>
         order by usertype
     </select>
+
+    <update id="updatePwd" parameterType="string">
+        update user set password = #{password} where usercode = #{usercode}
+    </update>
 </mapper>

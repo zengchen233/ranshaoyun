@@ -22,4 +22,7 @@ public interface UserMapper {
 
     //获取用户列表
     public List<User> queryUserList(Map<String, Object> map);
+
+    //修改密码
+    public int updatePwd(@Param("usercode") String usercode,@Param("password") String password);
 }

@@ -86,6 +86,21 @@ public class UserServiceImpl implements UserService {
         return userList;
     }
 
+    @Override
+    public boolean updatePwd(String usercode, String password) {
+        boolean flag = false;
+        SqlSession sqlSession = mybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+
+        int i = mapper.updatePwd(usercode, password);
+
+        if (i > 0) {
+            flag = true;
+        }
+        sqlSession.close();
+        return flag;
+    }
+
     @Test
     public void test() {
         UserServiceImpl userService = new UserServiceImpl();

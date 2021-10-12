@@ -1,0 +1,57 @@
+.box {
+    border: 1px solid whitesmoke;
+    width: 30%;
+    text-align: center;
+    margin: 15% auto 0;
+    background: #f9f9f9;
+    padding: 20px 50px;
+}
+
+.box:hover {
+    box-shadow: 1px 1px 7px rgb(172, 172, 172);
+    transform: scale(1.025);
+}
+
+.login-row {
+    margin: 10px auto;
+    text-align: center;
+}
+/*针对输入对话框的设置*/
+.input-text {
+    height: 25px;
+    transition: all 0.25s;
+}
+.input-text:hover {
+    outline: 0;
+}
+.input-text:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 5px #00b3ee;
+    border-color: #00b3ee;
+}
+.verified {
+    cursor: pointer;
+    max-width: 80%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 1px 1px 3px rgb(179, 179, 179);
+    transition: all 0.5s;
+}
+.verified:hover{
+    transform: scale(1.05);
+}
+/*针对按钮的设置*/
+button {
+    background-color: #00b3ee;
+    cursor: pointer;
+    width: 150px;
+    height: 35px;
+    color: white;
+    border-radius: 5px;
+    border-style: none;
+    transition: all 0.5s;
+}
+
+button:hover {
+    background-color: rgb(39, 212, 105);
+}
