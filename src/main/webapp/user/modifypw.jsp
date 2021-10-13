@@ -26,7 +26,7 @@
                     <input type="password" name="newpassword" class="input-text" required/>
                 </div>
                 <div class="login-row">
-                    <button type="submit" id="login-btn" class="btn" >登&nbsp;录</button>
+                    <button type="submit" id="login-btn" class="btn" >提&nbsp;交</button>
                     <button type="reset">重&nbsp;置</button>
                 </div>
             </div>
